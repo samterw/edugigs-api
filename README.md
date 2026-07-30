@@ -24,30 +24,33 @@ EduGigs API serves as the centralized backend service for the EduGigs platform. 
 To get a local copy up and running, follow these simple steps:
 
 1. **Clone the repository:**
+Place this project inside your Laragon www directory (`C:\laragon\www\edugigs-api`), then open your terminal inside the folder:
    ```bash
    git clone https://github.com/samterw/edugigs-api.git
    cd edugigs-api
    ```
+2. **Start Laragon Services:**
+Open Laragon and click Start All to spin up Apache/MySQL.
 
-2. **Install PHP dependencies:**
+3. **Install PHP dependencies:**
     ```bash
     composer install
     ```
 
-3. **Configure Environment File:**
+4. **Configure Environment File:**
     Copy the example environment template and generate your application key:
     ```bash
     cp .env.example .env
     php artisan key:generate
     ```
 
-4. **Set up your database:**
+5. **Set up your database:**
     Update your database credentials (DB_DATABASE, DB_USERNAME, DB_PASSWORD) inside your .env file, then run the database migration and seeder command:
     ```bash
     php artisan migrate:fresh --seed
     ```
 
-5. **Run the local development server:**
+6. **Run the local development server:**
     ```bash
     php artisan serve
     ```
