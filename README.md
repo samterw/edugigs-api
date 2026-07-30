@@ -1,59 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <h1 align="center">EduGigs API (Backend)</h1>
 </p>
 
-## About Laravel
+<p align="center">
+  The robust Laravel backend API powering <strong>EduGigs</strong>, a campus freelance marketplace.
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 About The Project
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+EduGigs API serves as the centralized backend service for the EduGigs platform. It handles secure user authentication via Laravel Sanctum, gig management, slot scheduling, order workflows, real-time messaging, gamification badges, and automated database seeders.
 
-## Learning Laravel
+## 🛠️ Tech Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+* **Framework:** Laravel (PHP 8.2+)
+* **Authentication:** Laravel Sanctum
+* **Database:** MySQL
+* **Key Packages:** Carbon (Date Handling), Intervention/Image (Media handling)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ⚙️ Getting Started & Installation
 
-## Laravel Sponsors
+To get a local copy up and running, follow these simple steps:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/samterw/edugigs-api.git
+   cd edugigs-api
+   ```
 
-### Premium Partners
+2. **Install PHP dependencies:**
+    ```bash
+    composer install
+    ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+3. **Configure Environment File:**
+    Copy the example environment template and generate your application key:
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
 
-## Contributing
+4. **Set up your database:**
+    Update your database credentials (DB_DATABASE, DB_USERNAME, DB_PASSWORD) inside your .env file, then run the database migration and seeder command:
+    ```bash
+    php artisan migrate:fresh --seed
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. **Run the local development server:**
+    ```bash
+    php artisan serve
+    ```
 
-## Code of Conduct
+The API will be accessible at http://localhost:8000.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📂 Core Architecture
 
-## Security Vulnerabilities
+* **Controllers:** Handles business logic for Gigs, Orders, Authentication, Messages, Reviews, and Admin tasks.
+* **Seeders:** Includes EduGigsSeeder to automatically populate realistic student profiles, faculty data, service categories, and chat logs for testing and evaluation.
+* **Console Commands:** Custom scheduled background tasks for managing expired booking slots.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📄 License
+This project is developed as part of an academic final year project.
